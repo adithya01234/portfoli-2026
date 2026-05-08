@@ -1,0 +1,110 @@
+/* Red & White Modern Theme for Portfolio */
+:root {
+  --bg-color: #111112;
+  --bg-card: #18191b;
+  --text-main: #fff;
+  --text-light: #ff1744;
+  --primary: #ff1744;
+  --secondary: #b71c1c;
+  --gradient: linear-gradient(90deg, #ff1744, #b71c1c);
+  --border-color: #2c2c2c;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --nav-height: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+}
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(183, 28, 28, 0.1);
+  border: none;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+.btn-primary:hover {
+  background: #b71c1c;
+  box-shadow: 0 6px 24px rgba(183, 28, 28, 0.18);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.glass-card {
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(183, 28, 28, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1.5px solid var(--border-color);
+}
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #b71c1c;
+}
+.about-content {
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+}
+.about-text .btn-primary {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer {
+  background: #2c2c2c;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer-brand h2 {
+  margin: 0;
+  color: #ff1744;
+  font-weight: 700;
+  color: #fff;
+}
+.footer-copy {
+  color: #fff;
+  font-size: 1rem;
+  opacity: 0.9;
+  background: #18191b;
+}
+@media screen and (max-width: 768px) {
+  .home-container,
+  .about-content,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
