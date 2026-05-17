@@ -1848,21 +1848,25 @@ body.light-theme .moon {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 70%;
     height: 100vh;
     background: var(--bg-color, #0b0c10);
     padding: 5rem 2rem;
-    transition: 0.4s;
+    transition: transform 0.4s ease, visibility 0.4s ease;
     z-index: 1000;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     margin-right: 0; /* reset desktop margin */
+    
+    transform: translateX(100%);
+    visibility: hidden;
   }
 
   .nav-menu.show-menu {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
   }
 
   .theme-toggle {
