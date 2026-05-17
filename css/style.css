@@ -1142,6 +1142,7 @@ body.light-theme .moon {
 .credential-carousel-wrapper {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .marquee-btn {
