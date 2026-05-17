@@ -3,14 +3,296 @@
   --bg-card: rgba(31, 40, 51, 0.6);
   --text-main: #c5c6c7;
   --text-light: #ffffff;
-  --primary: #45f3ff;
-  --secondary: #6c5ce7;
+  --primary: #ff1744; /* Changed from cyan to match existing red themes in code */
+  --secondary: #ff8a65;
   --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
   --border-color: rgba(255, 255, 255, 0.1);
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
   --nav-height: 80px;
 }
+
+body.light-theme {
+  --bg-color: #f5f7fa;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-main: #4a5568;
+  --text-light: #1a202c;
+  --primary: #ff1744;
+  --secondary: #ff8a65;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Fix text contrast everywhere in light theme */
+body.light-theme .stat-number,
+body.light-theme .skill-name,
+body.light-theme .credential-label,
+body.light-theme .project-title,
+body.light-theme .internship-role,
+body.light-theme .timeline-title,
+body.light-theme .timeline-date,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme .text-white {
+  color: var(--text-light) !important;
+}
+
+body.light-theme .stat-label,
+body.light-theme .credential-issuer,
+body.light-theme .project-description,
+body.light-theme .timeline-description,
+body.light-theme .skill-percent {
+  color: var(--text-main) !important;
+}
+
+body.light-theme .glass-card,
+body.light-theme .credential-tile,
+body.light-theme .internship-doc-card {
+  background: var(--bg-card) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .credential-preview,
+body.light-theme .internship-doc-preview {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .marquee-btn {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: var(--text-light) !important;
+}
+
+body.light-theme .marquee-btn:hover {
+  background: var(--gradient) !important;
+  color: #fff !important;
+}
+
+/* Fix navbar in light theme */
+body.light-theme header {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+body.light-theme .nav-link {
+  color: var(--text-main);
+}
+body.light-theme .nav-link:hover,
+body.light-theme .active-link {
+  color: var(--primary);
+}
+
+/* =============================================
+   INTRO.JS COMPACT TOOLTIP DESIGN
+   ============================================= */
+.introjs-tooltip {
+  font-family: var(--font-body) !important;
+  background: rgba(8, 8, 12, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 140, 0, 0.05) !important;
+  width: min(300px, 90vw) !important;
+  max-width: 300px !important;
+  min-width: 280px !important;
+  padding: 16px !important;
+  color: #FFFFFF !important;
+  
+  /* Smoothly transition colors when theme changes */
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease !important;
+  
+  /* Entrance Animation */
+  animation: tooltipEntrance 0.25s ease-out forwards !important;
+}
+
+body.light-theme .introjs-tooltip {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15) !important;
+  color: #111827 !important;
+}
+
+@keyframes tooltipEntrance {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.introjs-tooltiptext {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+  padding: 0 45px 0 0 !important; /* Leave space for absolute skip button */
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1.4 !important;
+  transition: color 0.4s ease !important;
+}
+
+body.light-theme .introjs-tooltiptext {
+  color: #111827 !important;
+}
+
+/* Orange highlighted icons */
+.tour-icon-wrapper {
+  color: #FF8C00 !important;
+  background: rgba(255, 140, 0, 0.12) !important;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.45) !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 12px !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Skip Button - positioned top right */
+.introjs-skipbutton {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  transition: color 0.2s ease !important;
+}
+
+body.light-theme .introjs-skipbutton {
+  color: rgba(17, 24, 39, 0.6) !important;
+}
+
+.introjs-skipbutton:hover {
+  color: #FF8C00 !important;
+}
+body.light-theme .introjs-skipbutton:hover {
+  color: #FF8C00 !important;
+}
+
+/* Progress bar */
+.introjs-progress {
+  background-color: rgba(128, 128, 128, 0.2) !important;
+  border-radius: 4px !important;
+  height: 4px !important;
+  margin: 16px 0 12px 0 !important;
+  overflow: hidden !important;
+}
+
+.introjs-progressbar {
+  background: linear-gradient(90deg, #FF1744, #FF8C00) !important;
+  border-radius: 4px !important;
+  height: 100% !important;
+  transition: width 0.3s ease-out !important;
+}
+
+/* Bottom Buttons Row */
+.introjs-tooltipbuttons {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+}
+
+.introjs-button {
+  width: 80px !important;
+  height: 38px !important;
+  border-radius: 8px !important;
+  text-shadow: none !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease, color 0.4s ease, border-color 0.4s ease !important;
+  border: none !important;
+}
+
+.introjs-prevbutton {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.light-theme .introjs-prevbutton {
+  color: #111827 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+.introjs-nextbutton, .introjs-donebutton {
+  background: linear-gradient(135deg, #FF1744, #FF8C00) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.25) !important;
+}
+
+.introjs-button:hover:not(.introjs-disabled) {
+  transform: scale(1.03) !important;
+}
+
+.introjs-nextbutton:hover, .introjs-donebutton:hover {
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.35) !important;
+}
+
+.introjs-arrow {
+  display: none !important;
+}
+
+/* =============================================
+   TOUR TARGET HIGHLIGHT STYLES
+   ============================================= */
+.tour-highlight {
+  position: relative !important;
+  z-index: 9999999 !important;
+}
+
+/* Override Intro.js's native white highlight */
+.introjs-showElement {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Make the dark overlay cutout (hole) rounded */
+.introjs-helperLayer {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 50px !important;
+}
+
+/* Apply the glowing orange animation to the helper layer perfectly */
+.introjs-helperLayer::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: inherit;
+  animation: singleOrangePulse 1.5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes singleOrangePulse {
+  0% {
+    box-shadow: 0 0 0 2px #FF8C00, 0 0 10px rgba(255, 140, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 5px #FF8C00, 0 0 30px rgba(255, 140, 0, 0.9);
+  }
+}
+
+
 
 * {
   margin: 0;
@@ -162,6 +444,7 @@ header {
 .nav-menu {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-list {
@@ -181,12 +464,180 @@ header {
   color: var(--text-light);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .nav-toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-light);
 }
+
+/* =============================================
+   THEME TOGGLE (SUN & MOON)
+   ============================================= */
+.theme-toggle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sun-moon-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* SUN (Light Mode) */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffeb3b, #ff5722); /* Thicker orange */
+  box-shadow: 0 0 15px #ff9800, 0 0 30px #ff3d00;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-theme .sun {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.sun .glow {
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,87,34,0.7) 0%, rgba(255,61,0,0) 70%);
+  animation: sunPulse 3s infinite alternate;
+}
+
+.sun .plasma {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  animation: rotatePlasma 10s linear infinite;
+}
+
+.sun .flames {
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 107, 107, 0.5);
+  animation: rotateFlames 6s linear infinite;
+}
+
+/* MOON (Dark Mode) */
+.moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 26px;
+  height: 26px;
+  opacity: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: floatMoon 4s ease-in-out infinite alternate;
+}
+
+body.light-theme .moon {
+  transform: translate(-50%, -50%) scale(0) rotate(-45deg);
+  opacity: 0;
+}
+
+.moon .crescent {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: inset -6px -2px 0 2px #e2e8f0; /* Brighter, distinct white-blue */
+  filter: drop-shadow(0 0 10px rgba(226, 232, 240, 0.8));
+  position: relative;
+  z-index: 2;
+}
+
+.moon .moon-glow {
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(144, 205, 244, 0.6) 0%, rgba(144, 205, 244, 0) 70%);
+}
+
+.moon .stars {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -8px;
+  left: -8px;
+  z-index: 1;
+}
+
+.moon .star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+.moon .star.s1 { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s; }
+.moon .star.s2 { width: 3px; height: 3px; top: 30%; left: 80%; animation-delay: 0.5s; }
+.moon .star.s3 { width: 1.5px; height: 1.5px; bottom: 20%; left: 10%; animation-delay: 1s; }
+
+/* Animations */
+@keyframes sunPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+@keyframes rotatePlasma {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes rotateFlames {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes floatMoon {
+  0% { top: 48%; }
+  100% { top: 52%; }
+}
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 4px #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun .glow, .sun .plasma, .sun .flames, .moon, .moon .star {
+    animation: none;
+  }
+}
+
 
 .home {
   min-height: 100vh;
@@ -388,6 +839,123 @@ header {
   padding-bottom: 1rem;
 }
 
+/* =============================================
+   TYPING CURSOR
+   ============================================= */
+.typing-cursor {
+  font-weight: 300;
+  color: var(--primary);
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* =============================================
+   STATS COUNTER SECTION
+   ============================================= */
+.stats.section {
+  padding: 3rem 0;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(255, 23, 68, 0.15),
+              0 0 60px rgba(255, 23, 68, 0.04);
+  border-color: rgba(255, 23, 68, 0.3);
+}
+
+/* Gradient line at top of card */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  background: rgba(255, 23, 68, 0.1);
+  border: 1px solid rgba(255, 23, 68, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  background: var(--gradient);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #fff;
+  line-height: 1;
+  display: inline;
+}
+
+.stat-suffix {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: inline;
+  margin-top: -0.5rem;
+}
+
+.stat-card .stat-number,
+.stat-card .stat-suffix {
+  display: inline;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+}
+
 .skills-container {
   display: flex;
   gap: 20px;
@@ -397,6 +965,32 @@ header {
 
 .skill-category {
   flex: 1;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(255, 23, 68, 0.15),
+              0 0 60px rgba(255, 23, 68, 0.04);
+  border-color: rgba(255, 23, 68, 0.3);
+}
+
+/* Staggered card entrance */
+.skill-stagger {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  transition-delay: calc(var(--stagger, 0) * 0.15s);
+}
+
+.skills-animated .skill-stagger {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skill-header {
@@ -409,15 +1003,51 @@ header {
 .skill-icon {
   font-size: 1.5rem;
   color: var(--primary);
+  animation: iconFloat 3s ease-in-out infinite;
+  animation-delay: calc(var(--stagger, 0) * 0.5s);
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 .skill-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
+.skills-animated .skill-list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger each skill item within a card */
+.skills-animated .skill-list li:nth-child(1) { transition-delay: 0.3s; }
+.skills-animated .skill-list li:nth-child(2) { transition-delay: 0.45s; }
+.skills-animated .skill-list li:nth-child(3) { transition-delay: 0.6s; }
+.skills-animated .skill-list li:nth-child(4) { transition-delay: 0.75s; }
 
 .skill-name {
   margin-bottom: 0.5rem;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-percent {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.8s;
+}
+
+.skills-animated .skill-percent {
+  opacity: 1;
 }
 
 .skill-bar {
@@ -425,12 +1055,46 @@ header {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
 }
 
 .skill-progress {
   height: 100%;
   background: var(--gradient);
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
 }
+
+/* Shimmer effect on the bar */
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: barShimmer 2s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease 1.2s;
+}
+
+.skills-animated .skill-progress::after {
+  opacity: 1;
+}
+
+@keyframes barShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
 
 
 /* =============================================
@@ -449,10 +1113,17 @@ header {
 .credential-marquee {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 1rem 0 2rem;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.credential-marquee::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 /* Scrolling strip — holds all cards in a row */
@@ -460,12 +1131,50 @@ header {
   display: flex;
   gap: 2rem;
   width: max-content;
-  animation: credentialScroll 40s linear infinite;
 }
 
-/* Pause on hover */
-.credential-strip:hover {
-  animation-play-state: paused;
+/* Carousel Wrapper & Controls */
+.credential-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.marquee-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(31, 40, 51, 0.3); /* Very dull by default */
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6); /* Dull text color */
+  width: 60px;  /* Made buttons bigger */
+  height: 60px; /* Made buttons bigger */
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; /* Bigger icon */
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0.5; /* Makes the whole button look faded/dull */
+}
+
+.marquee-btn.left-btn {
+  left: 25px; /* Moved away from the extreme corner */
+}
+
+.marquee-btn.right-btn {
+  right: 25px; /* Moved away from the extreme corner */
+}
+
+.marquee-btn:hover {
+  background: var(--gradient); /* Thick/solid color on hover */
+  color: #fff; /* Bright white text */
+  border-color: transparent;
+  opacity: 1; /* Fully visible, no longer dull */
+  transform: translateY(-50%) scale(1.1); /* Keep vertical center while slightly growing */
+  box-shadow: 0 10px 30px rgba(255, 23, 68, 0.5);
 }
 
 /* Individual card */
@@ -539,11 +1248,7 @@ header {
   letter-spacing: 0.02em;
 }
 
-/* Scroll animation */
-@keyframes credentialScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+/* Removed CSS Scroll animation */
 
 /* Mobile responsive */
 @media screen and (max-width: 768px) {
@@ -1000,6 +1705,12 @@ header {
   .internship-docs-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Stats */
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
 }
 
 /* ===========================================
@@ -1018,6 +1729,24 @@ header {
   .internship-docs-grid {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  /* ---- Stats ---- */
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-suffix {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
   }
 
   /* ---- Internship ---- */
