@@ -327,6 +327,8 @@ if (marquee) {
 // =============================================
 window.addEventListener("load", () => {
   if (typeof introJs !== 'undefined') {
+    const isMobile = window.innerWidth <= 768;
+
     // Start tour with slight delay so page loads fully
     setTimeout(() => {
       const tour = introJs().setOptions({
@@ -334,7 +336,25 @@ window.addEventListener("load", () => {
         showBullets: false,
         exitOnOverlayClick: false,
         doneLabel: 'Got it',
-        skipLabel: 'Skip'
+        skipLabel: 'Skip',
+        steps: [
+          {
+            element: isMobile ? document.querySelector('.logo') : document.querySelector('.navbar'),
+            intro: "<span class='tour-icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/></svg></span> Welcome to my portfolio!"
+          },
+          {
+            element: isMobile ? document.querySelector('.nav-toggle') : document.querySelector('#nav-menu'),
+            intro: "<span class='tour-icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'/></svg></span> Explore sections here."
+          },
+          {
+            element: document.querySelector('#theme-toggle'),
+            intro: "<span class='tour-icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z'/></svg></span> Switch theme instantly."
+          },
+          {
+            element: document.querySelector('#resume-download-btn'),
+            intro: "<span class='tour-icon-wrapper'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/><path d='M14 2v4a2 2 0 0 0 2 2h4'/><path d='M10 9H8'/><path d='M16 13H8'/><path d='M16 17H8'/></svg></span> Download my resume."
+          }
+        ]
       });
 
       tour.onbeforechange(function(targetElement) {
